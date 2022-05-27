@@ -17,17 +17,17 @@ const Index: FC<IndexProps> = ({ page, changePage }) => {
     const { data, loading, error, refetch } =
         useQuery<pagesType>(GET_PAGES);
 
-    const NextPageIndicator = (IN: number) => {
-        if (IN < data!.characters.info.pages) {
-            return <pre onClick={() => { changePage(page + 1) }}>{page + 1}</pre>
-        }
-    }
+    // const NextPageIndicator = (IN: number) => {
+    //     if (IN < data!.characters.info.pages) {
+    //         return <pre onClick={() => { changePage(page + 1) }}>{page + 1}</pre>
+    //     }
+    // }
 
-    const PreviousPageIndicator = (IN: number) => {
-        if (IN > 1) {
-            return <pre onClick={() => { changePage(page - 1) }}>{page - 1}</pre>
-        }
-    }
+    // const PreviousPageIndicator = (IN: number) => {
+    //     if (IN > 1) {
+    //         return <pre onClick={() => { changePage(page - 1) }}>{page - 1}</pre>
+    //     }
+    // }
 
     const LastPageIndicator = (IN: number) => {
         if (IN < data!.characters.info.pages) {
@@ -40,16 +40,16 @@ const Index: FC<IndexProps> = ({ page, changePage }) => {
         }
     }
 
-    const FirstPageIndicator = (IN: number) => {
-        if (IN > 2) {
-            return (
-                <div className="FirstPageIndicator">
-                    <pre onClick={() => { changePage(1) }}>{1}</pre>
+    // const FirstPageIndicator = (IN: number) => {
+    //     if (IN > 2) {
+    //         return (
+    //             <div className="FirstPageIndicator">
+    //                 <pre onClick={() => { changePage(1) }}>{1}</pre>
               
-                </div>
-            )
-        }
-    }
+    //             </div>
+    //         )
+    //     }
+    // }
 
     if (loading) {
         return <h1>Loading...</h1>
@@ -64,8 +64,8 @@ const Index: FC<IndexProps> = ({ page, changePage }) => {
 
 
                 <ThisPage onClick={() => { changePage(page) }}>{page}</ThisPage>
-              
-                {LastPageIndicator(page)}
+                { "/"}
+                { LastPageIndicator(page)}
 
                 <button onClick={() => {
                     if (page < data!.characters.info.pages) changePage(page + 1);
